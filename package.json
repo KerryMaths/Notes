@@ -1,0 +1,21 @@
+{
+  "name": "notes",
+  "version": "1.8.0",
+  "description": "A Notes App where you can login and have the options to create, read and delete notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kerry maths",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
+    "run-sequence": "^1.1.5"
+  }
+}

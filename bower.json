@@ -1,0 +1,24 @@
+{
+  "name": "Notes",
+  "version": "1.8.0",
+  "homepage": "https://github.com/KerryMaths/Notes",
+  "authors": [
+    "KerryMaths <kerry.mathurin@gmail.com>"
+  ],
+  "description": "A Notes App where you can login and have the options to create, read and delete notes",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.8",
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6"
+  }
+}
