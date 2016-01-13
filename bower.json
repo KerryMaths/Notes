@@ -16,9 +16,11 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "angular": "~1.4.8",
     "jquery": "~2.2.0",
-    "bootstrap": "~3.3.6"
+    "angular-route": "~1.4.8",
+    "ngstorage": "~0.3.10",
+    "bootstrap-sass": "~3.3.6"
   }
 }
