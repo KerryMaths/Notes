@@ -1,0 +1,19 @@
+{
+	"kerrymaths": {
+		"username": "kerrymaths",
+		"password": "yopapass",
+		"name": "Kerry" 
+	},
+
+	"user": {
+		"username": "user",
+		"password": "yopapass1" ,
+		"name": "Martin"
+	},
+
+	"admin": {
+			"username": "admin",
+			"password": "yopapass2" ,
+			"name": "Sarah"
+		}
+}

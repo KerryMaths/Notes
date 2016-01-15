@@ -20,7 +20,7 @@ gulp.task('watch', function() {
     }
   });
 
-gulp.watch('app/*.html', ['browser-reload']);
+gulp.watch('app/*/*.html', ['browser-reload']);
 gulp.watch('app/styles/*.scss', ['sass', 'browser-reload']);
 gulp.watch('app/*/*.js', ['browser-reload']);
 

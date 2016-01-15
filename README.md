@@ -9,14 +9,15 @@
 ## Overview
 
 Objects:
-- User
-- Notes
+- User (name, username, password, user_img)
+- Notes (title, content, created, owner)
 
 ### Use-case & Scenario
 
 Authentication
 - User should be able to login to manipulate notes
     - if correct username & password are provided, authenticate user and redirect to notes overview
+    - if User is already loged in, redirect to notes overview
     - if incorrect username or password, re-display form with appropriate error message
     - if username or password not provided, prevent user from submitting form & display appropriate error message 
 
@@ -37,4 +38,13 @@ Once Logged In:
     - click “cancel” to cancel note; (Warning appears)
 
 ### Instructions 
+
+
+notes : {
+    title : "title",
+    content : "content",
+    created : "12/01/16",
+    owner : "username"
+}
+
 

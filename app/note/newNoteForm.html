@@ -1,0 +1,22 @@
+<form class="form" data-ng-submit="addNote()">
+
+	<h4>New note</h4>
+	
+	<div class="form-group">
+		<label for="title">Title:<span style="color:red"> * </span></label>
+		<input class="form-control" type="text" name="title" data-ng-model="newNote.title" />
+	</div>
+
+	<div class="form-group">
+		<label for="note">Note:<span style="color:red"> * </span></label>
+		<textarea class="form-control" rows="5" id="note" data-ng-model="newNote.note"></textarea>
+	</div>
+
+	<button class="btn btn-danger"> Cancel </button>
+
+	<button class="btn btn-primary pull-right">
+		ADD NOTE <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+	</button>
+
+</form>
+<br/>
