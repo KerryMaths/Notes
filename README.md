@@ -10,7 +10,19 @@
 
 Objects:
 - User (name, username, password, user_img)
-- Notes (noteId, title, content, created, owner, etc)
+- Notes "noteId: { title, content, noteId, ownerFirstName, ownerLastName, ownerImg}"
+- AdditionalNotes "additionalNoteId(timestamp): {  content, noteId, ownerFirstName, ownerLastName, ownerImg}"
+
+{
+    NoteId : {
+        additionalNoteId(timestamp): {
+            ownerFirstName:
+            content:
+            additionalNoteId(timestamp):
+            ownerImg:
+        }
+    }
+}
 
 ### Use-case & Scenario
 

@@ -22,7 +22,29 @@
 		this.getCurrentNote = function (noteId) { 
 			return $sessionStorage.notesCollection[noteId];
 		};
-	
+
+		// save additional notes
+		this.saveAdditionalNotes = function(key, content){
+
+			//current note and user
+			var currentNote = $sessionStorage.notesCollection[key];
+			var currentUser = $sessionStorage.currentUser;
+
+			//setting properties for obj
+			var additionalNote = {};
+			additionalNote.dateCreated = new Date().getTime();
+			additionalNote.content = content;
+			additionalNote.createdBy = currentUser.firstName;
+			additionalNote.createrImg = currentUser.img;
+
+			//adding additional note to notes collection
+			currentNote.additionalNotes = currentNote.additionalNotes || {};
+			currentNote.additionalNotes[additionalNote.dateCreated] = additionalNote;
+
+			return currentNote;
+
+		};
+
 	}
 
 	angular

@@ -35,18 +35,21 @@
 	'use strict';
 
 	function NoteDetailController ($scope, $routeParams, NotesService) {
-
+		
 		//Get current Note
 		$scope.currentNote = NotesService.getCurrentNote($routeParams.noteId); 
 
+		//toggle view form
  		$scope.toggleViewForm = function(flag) {
  			$scope.viewForm = flag; 
  			if (!$scope.viewForm){
  				$scope.addingNoteError = false;
+ 				$scope.newNoteContent = null;
  			}
  		};
 
- 		$scope.submitNoteFn = function() {
+ 		//submit additional note
+ 		$scope.submitNote = function() {
  			
  			if (!$scope.newNoteContent) {
  				$scope.addingNoteError = true;
@@ -55,12 +58,13 @@
  			else {
  				$scope.addingNoteError = false;
 
- 				//pass note detail to note service
-
- 				//display in view
+ 				//save additional note
+ 				NotesService.saveAdditionalNotes($routeParams.noteId, $scope.newNoteContent);
 
  				//hide form && empty text area
-	 			}
+ 				$scope.viewForm = false;
+ 				$scope.newNoteContent = null;
+	 		}
  		};
 
 	}
