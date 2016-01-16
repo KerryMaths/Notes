@@ -10,7 +10,7 @@
 
 Objects:
 - User (name, username, password, user_img)
-- Notes (title, content, created, owner)
+- Notes (noteId, title, content, created, owner, etc)
 
 ### Use-case & Scenario
 

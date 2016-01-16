@@ -1,0 +1,50 @@
+<div>
+
+	<h4>{{currentNote.title}}</h4>
+	<br/><br/>
+
+	<div class="alert alert-danger" role="alert" data-ng-show="addingNoteError">
+	  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+	  <span class="sr-only">Error:</span>
+	  Please enter a note.
+	</div>
+
+	<textarea class="form-control" rows="5" id="note" data-ng-show="viewForm" data-ng-model="newNoteContent"></textarea>
+	<br/>
+
+<!--Creating buttons-->
+	<button class="btn btn-danger" data-ng-show="viewForm" data-ng-click="toggleViewForm(false)"> Cancel </button>
+
+	<button class="btn btn-primary pull-right" data-ng-click="submitNoteFn()" data-ng-show="viewForm" >
+		ADD NOTE <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+	</button>
+
+
+<!--Reading buttons-->
+	<a class="btn btn-danger" data-ng-hide="viewForm" data-ng-href="/#/notes"> 
+		<span class="glyphicon glyphicon-menu-left" aria-hidden="true" ></span> Back to Overview 
+	</a>
+
+	<button class="btn btn-primary pull-right" data-ng-click="toggleViewForm(true)" data-ng-hide="viewForm">
+		ADD ADDITIONAL NOTE <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+	</button>
+	<br/><br/>
+
+	<table class="table">
+		<tbody>
+			<tr class="pull-left">
+				<td><img class="note-img" src="{{currentNote.ownerImg}}" alt="owner" ></td>
+				<td style="width:100%">
+					<p class="note-read">
+						<span><strong>{{currentNote.ownerFirstName}}</strong></span>
+						<span class="pull-right">
+							<strong>{{currentNote.noteId | date:"MM/dd/yyyy 'at' h:mm"}}</strong>
+						</span><br/>
+						<span>{{currentNote.content}}</span>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>

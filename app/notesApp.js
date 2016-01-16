@@ -12,13 +12,13 @@
         templateUrl: 'note/overview.html',
         controller: 'NotesController',
       })
-      .when('/notes/read', {
-        templateUrl: 'note/modifyNote.html',
-        controller: 'NotesController',
-      })
       .when('/notes/create', {
         templateUrl: 'note/newNoteForm.html',
         controller: 'NotesController',
+      })
+      .when('/notes/:noteId', {
+        templateUrl: 'note/notesDetails.html',
+        controller: 'NoteDetailController',
       })
       .when('/logout', {
         templateUrl: 'user/login.html',

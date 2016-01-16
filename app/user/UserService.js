@@ -34,5 +34,5 @@
 
 	angular
 		.module('notesApp')
-		.service('UserService', ['$http', '$sessionStorage', 'verifyUserSuccess', 'verifyUserError', UserService]);
+		.service('UserService', ['$http', '$sessionStorage', UserService]);
 })(); 

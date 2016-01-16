@@ -2,18 +2,24 @@
 	"kerrymaths": {
 		"username": "kerrymaths",
 		"password": "yopapass",
-		"name": "Kerry" 
+		"firstName": "Kerry",
+		"lastName": "Maths",
+		"img": "img/kerry.png"
 	},
 
 	"user": {
 		"username": "user",
-		"password": "yopapass1" ,
-		"name": "Martin"
+		"password": "yopapass1",
+		"firstName": "Martin",
+		"lastName": "John",
+		"img": "img/martin.png"
 	},
 
 	"admin": {
-			"username": "admin",
-			"password": "yopapass2" ,
-			"name": "Sarah"
-		}
+		"username": "admin",
+		"password": "yopapass2",
+		"firstName": "Sarah",
+		"lastName": "Star",
+		"img": "img/sarah.png"
+	}
 }

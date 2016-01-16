@@ -1,31 +1,31 @@
 (function () {
 	'use strict';
 
-	function UserService ($http, $sessionStorage) {
+	function NotesService ($sessionStorage) {
 
-		this.verifyUser = function (user) {
+		$sessionStorage.notesCollection = $sessionStorage.notesCollection || {};
 
-			return $http.get('/user/users.json')
-				.then(function(response){
-					var users = response.data;
-					var foundUser = users[user.name.toLowerCase()];
+		this.saveNewNote = function(newNote, user){
 
-					if (foundUser && user.password === foundUser.password)  {
-						return foundUser;
-					}
+			//setting properties for new note obj
+			newNote.noteId = new Date().getTime();
+			newNote.ownerFirstName = user.firstName;
+			newNote.ownerLastName = user.lastName;
+			newNote.ownerImg = user.img;
 
-					return null;
-				});
-				//TODO
-				//handle failure callback
+			//adding new note to notes collection
+			$sessionStorage.notesCollection[newNote.noteId] = newNote;
+
 		};
 
-		this.getLoggedInUser = function () {
-			return $sessionStorage.currentUser;  	
+		//retrieving note content
+		this.getCurrentNote = function (noteId) { 
+			return $sessionStorage.notesCollection[noteId];
 		};
+	
 	}
 
 	angular
 		.module('notesApp')
-		.service('UserService', ['$http', '$sessionStorage', UserService]);
+		.service('NotesService', ['$sessionStorage', NotesService]);
 })(); 

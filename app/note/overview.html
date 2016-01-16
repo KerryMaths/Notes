@@ -1,8 +1,8 @@
 <div>
 	
-	<h1>Notes overview <small class="pull-right"><a data-ng-href="/#/logout" data-ng-click="logout()">Logout</a></small></h1>
+	<h1>Notes overview <small class="pull-right"><a data-ng-href="/#/logout">Logout</a></small></h1>
 	
-	<table class="table">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>Created by</th>
@@ -11,21 +11,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>{{currentUser.username}}</td>
-				<td>Example of Title</td>
-				<td>13/08/15 at 09:32</td>
-			</tr>
-			<tr>
-				<td>User</td>
-				<td>Example of Title</td>
-				<td>13/08/15 at 09:32</td>
+			<tr data-ng-repeat="note in notesCollection" data-ng-click="readNote()">
+				<td>{{note.ownerFirstName}} {{note.ownerLastName}}</td>
+				<td><a data-ng-href="/#/notes/{{note.noteId}}">{{note.title}}</a></td>
+				<td>{{note.noteId | date:"MM/dd/yyyy 'at' h:mm"}}</td>
 			</tr>
 		</tbody>
-	</table>
+	</table> 
 
-	<button class="btn btn-primary">
+	<a class="btn btn-primary" data-ng-href="/#/notes/create">
 		CREATE A NEW NOTE <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-	</button>
+	</a>
 
 </div>
