@@ -7,16 +7,16 @@
 		"img": "img/kerry.png"
 	},
 
-	"user": {
-		"username": "user",
+	"martinfly": {
+		"username": "martinfly",
 		"password": "yopapass1",
 		"firstName": "Martin",
 		"lastName": "John",
 		"img": "img/martin.png"
 	},
 
-	"admin": {
-		"username": "admin",
+	"sarah09": {
+		"username": "sarah09",
 		"password": "yopapass2",
 		"firstName": "Sarah",
 		"lastName": "Star",

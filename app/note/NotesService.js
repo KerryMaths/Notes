@@ -23,6 +23,16 @@
 			return $sessionStorage.notesCollection[noteId];
 		};
 
+		//delete note 
+		this.deleteNote = function (noteId) { 
+
+			//delete note
+			delete $sessionStorage.notesCollection[noteId];
+
+			//update note collection
+			return $sessionStorage.notesCollection;
+		};
+
 		// save additional notes
 		this.saveAdditionalNotes = function(key, content){
 

@@ -8,13 +8,15 @@
 				<th>Created by</th>
 				<th>Title</th>
 				<th>Date</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr data-ng-repeat="note in notesCollection" data-ng-click="readNote()">
-				<td>{{note.ownerFirstName}} {{note.ownerLastName}}</td>
+				<td>{{note.ownerFirstName + " " + note.ownerLastName}}</td>
 				<td><a data-ng-href="/#/notes/{{note.noteId}}">{{note.title}}</a></td>
 				<td>{{note.noteId | date:"MM/dd/yyyy 'at' h:mm"}}</td>
+				<td><button class="btn btn-danger" data-ng-click="deleteNote(note.noteId)" data-ng-show="{{ note.ownerFirstName === currentUser.firstName}}">Delete</button></td>
 			</tr>
 		</tbody>
 	</table> 
@@ -24,3 +26,5 @@
 	</a>
 
 </div>
+<br/>
+<p class="pull-right">Currently logged in: {{currentUser.username}}</p>

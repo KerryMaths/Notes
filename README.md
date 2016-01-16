@@ -11,18 +11,7 @@
 Objects:
 - User (name, username, password, user_img)
 - Notes "noteId: { title, content, noteId, ownerFirstName, ownerLastName, ownerImg}"
-- AdditionalNotes "additionalNoteId(timestamp): {  content, noteId, ownerFirstName, ownerLastName, ownerImg}"
-
-{
-    NoteId : {
-        additionalNoteId(timestamp): {
-            ownerFirstName:
-            content:
-            additionalNoteId(timestamp):
-            ownerImg:
-        }
-    }
-}
+- AdditionalNotes "additionalNoteId(timestamp): {  content, noteId, ownerFirstName, ownerImg}"
 
 ### Use-case & Scenario
 
@@ -46,8 +35,8 @@ Once Logged In:
 - User should be able to read note thread
     - click “Back to Overview” button to return to overview
     - click “Add Additional Note” button to access “Sub note form”
-    - if User enters note in text field and clicks “Add Note” (not will appear in thread below)
-    - click “cancel” to cancel note; (Warning appears)
+    - if User enters note in text field and clicks “Add Note” (note will appear in thread below)
+    - click “cancel” to cancel note; close form
 
 ### Instructions 
 
