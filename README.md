@@ -40,11 +40,3 @@ Once Logged In:
 ### Instructions 
 
 
-notes : {
-    title : "title",
-    content : "content",
-    created : "12/01/16",
-    owner : "username"
-}
-
-
