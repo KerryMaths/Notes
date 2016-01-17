@@ -5826,6 +5826,23 @@ html {
 th {
   background-color: lightgrey; }
 
+.required {
+  color: red; }
+
+.btn {
+  border-radius: 1px;
+  box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1); }
+
+.btn-primary, .btn-primary:active {
+  color: #fff;
+  background-color: #39ab8b;
+  border-color: #39ab8b; }
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:focus.active {
+  color: #fff;
+  background-color: #1d8467;
+  border-color: #1d8467; }
+
 .note-read {
   background-color: #f5f5f5;
   box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);

@@ -26,7 +26,7 @@ Once Logged In:
 -  User should be able to logout (from any page)
 -  User should be able to see notes overview
     - click on note to read note in full detail
-    - click on ‘x’ next to note to delete note
+    - click on ‘delete’ button to delete note
     - click on "Add new note" button to access “New note" form
 - User should be able to add new Note
     - if User clicks “Add Note” button, New Note is added to overview and redirect to notes overview

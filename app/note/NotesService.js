@@ -24,13 +24,15 @@
 		};
 
 		//delete note 
-		this.deleteNote = function (noteId) { 
+		this.deleteNote = function (noteId, owner) { 
 
+			if ($sessionStorage.currentUser.firstName === owner) {
 			//delete note
-			delete $sessionStorage.notesCollection[noteId];
-
-			//update note collection
-			return $sessionStorage.notesCollection;
+						delete $sessionStorage.notesCollection[noteId];
+			
+						//update note collection
+						return $sessionStorage.notesCollection;
+			}
 		};
 
 		// save additional notes

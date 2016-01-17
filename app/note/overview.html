@@ -1,6 +1,6 @@
 <div>
 	
-	<h1>Notes overview <small class="pull-right"><a data-ng-href="/#/logout">Logout</a></small></h1>
+	<h2>Notes overview <small class="pull-right"><a data-ng-href="/#/logout">Logout</a></small></h2>
 	
 	<table class="table table-hover">
 		<thead>
@@ -16,7 +16,7 @@
 				<td>{{note.ownerFirstName + " " + note.ownerLastName}}</td>
 				<td><a data-ng-href="/#/notes/{{note.noteId}}">{{note.title}}</a></td>
 				<td>{{note.noteId | date:"MM/dd/yyyy 'at' h:mm"}}</td>
-				<td><button class="btn btn-danger" data-ng-click="deleteNote(note.noteId)" data-ng-show="{{ note.ownerFirstName === currentUser.firstName}}">Delete</button></td>
+				<td><button class="btn btn-danger" data-ng-click="deleteNote(note.noteId, note.ownerFirstName)" data-ng-show="{{ note.ownerFirstName === currentUser.firstName}}">Delete</button></td>
 			</tr>
 		</tbody>
 	</table> 
