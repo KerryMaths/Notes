@@ -5833,12 +5833,12 @@ th {
   border-radius: 1px;
   box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1); }
 
-.btn-primary, .btn-primary:active {
+.btn-primary, .btn-primary:active:focus {
   color: #fff;
   background-color: #39ab8b;
   border-color: #39ab8b; }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:focus.active {
+.btn-primary:hover, .btn-primary:focus {
   color: #fff;
   background-color: #1d8467;
   border-color: #1d8467; }

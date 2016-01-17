@@ -36,10 +36,10 @@
 		};
 
 		// save additional notes
-		this.saveAdditionalNotes = function(key, content){
+		this.saveAdditionalNotes = function(parentNoteId, content){
 
 			//current note and user
-			var currentNote = $sessionStorage.notesCollection[key];
+			var currentNote = $sessionStorage.notesCollection[parentNoteId];
 			var currentUser = $sessionStorage.currentUser;
 
 			//setting properties for obj
@@ -47,7 +47,7 @@
 			additionalNote.dateCreated = new Date().getTime();
 			additionalNote.content = content;
 			additionalNote.createdBy = currentUser.firstName;
-			additionalNote.createrImg = currentUser.img;
+			additionalNote.creatorImg = currentUser.img;
 
 			//adding additional note to notes collection
 			currentNote.additionalNotes = currentNote.additionalNotes || {};
