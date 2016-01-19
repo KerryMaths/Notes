@@ -45,6 +45,4 @@ Once Logged In:
 - run `npm install` in project root directory - uses package.json to download the dependencies
 - run `bower install` in project root directory - uses bower.json to download bower components
 - run  `gulp watch` - runs local server  (default port: 3000)
-
-## Login Details
 - users created when the app is initialised: 'kerrymaths', 'martinfly', 'sarah09' with password as 'yopapass'
