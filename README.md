@@ -9,9 +9,9 @@
 ## Overview
 
 Objects:
-- User (name, username, password, user_img)
-- Notes "noteId: { title, content, noteId, ownerFirstName, ownerLastName, ownerImg}"
-- AdditionalNotes "additionalNoteId: {  content, noteId, ownerFirstName, ownerImg}"
+- User = {name, username, password, user_img}
+- Notes =  noteId: { title, content, noteId, owner : {firstName, lastName, img}, }"
+- AdditionalNote = additionalNoteId: { noteId : {username, content, datecreated,}
 
 ### Use-case & Scenario
 
@@ -40,4 +40,11 @@ Once Logged In:
 
 ### Instructions 
 
+- install NodeJS and NPM
+- `npm install -g bower` - install bower globally 
+- run `npm install` in project root directory - uses package.json to download the dependencies
+- run `bower install` in project root directory - uses bower.json to download bower components
+- run  `gulp watch` - runs local server  (default port: 3000)
 
+## Login Details
+- users created when the app is initialised: 'kerrymaths', 'martinfly', 'sarah09' with password as 'yopapass'

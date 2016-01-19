@@ -1,18 +1,33 @@
 (function () {
 	'use strict';
 
-	function NotesService ($sessionStorage) {
+	function NotesService ($sessionStorage, $location, $route, UserService) {
 
 		$sessionStorage.notesCollection = $sessionStorage.notesCollection || {};
+		$sessionStorage.additionalNotes = $sessionStorage.additionalNotes || {};
+
+		this.getAllNotes = function () {
+
+			var notes = $sessionStorage.notesCollection;
+
+			for (var key in notes) {
+				for (var i = 0; i < Object.keys(notes).length; i++) {
+					var note = notes[key];
+					UserService.getBasicUserDetails(note.ownerId).then( function (response) {
+						note.owner = response;
+					}); 
+				}
+			}
+
+			return notes;
+		};
 
 		this.saveNewNote = function(newNote, user){
 
 			//setting properties for new note obj
 			newNote.noteId = new Date().getTime();
-			newNote.ownerFirstName = user.firstName;
-			newNote.ownerLastName = user.lastName;
-			newNote.ownerImg = user.img;
-
+			newNote.ownerId = user.username;
+			
 			//adding new note to notes collection
 			$sessionStorage.notesCollection[newNote.noteId] = newNote;
 
@@ -20,40 +35,63 @@
 
 		//retrieving note content
 		this.getCurrentNote = function (noteId) { 
+
 			return $sessionStorage.notesCollection[noteId];
 		};
 
-		//delete note 
-		this.deleteNote = function (noteId, owner) { 
+		//retrieving additional note content
+		this.getCurrentAdditionalNotes = function (noteId) { 
 
-			if ($sessionStorage.currentUser.firstName === owner) {
-			//delete note
-						delete $sessionStorage.notesCollection[noteId];
-			
-						//update note collection
-						return $sessionStorage.notesCollection;
+			var currentAdditionalNotes = $sessionStorage.additionalNotes[noteId];
+
+			for (var key in currentAdditionalNotes) {
+				for (var i = 0; i < Object.keys(currentAdditionalNotes).length; i++) {
+					var note = currentAdditionalNotes[key];
+					UserService.getBasicUserDetails(currentAdditionalNotes[key].createdBy).then( function (response) {
+						note.owner = response;
+					}); 
+				}
 			}
+
+			return currentAdditionalNotes;
+		};
+
+
+		//delete note 
+		this.deleteNote = function (noteId, username) { 
+			// DONE: don't pass in owner, compare username in note object 
+			if ($sessionStorage.currentUser.username === username) {
+
+				//delete note
+				delete $sessionStorage.notesCollection[noteId];
+				delete $sessionStorage.additionalNotes[noteId];
+	}
 		};
 
 		// save additional notes
 		this.saveAdditionalNotes = function(parentNoteId, content){
 
-			//current note and user
-			var currentNote = $sessionStorage.notesCollection[parentNoteId];
+			//current user
 			var currentUser = $sessionStorage.currentUser;
 
 			//setting properties for obj
 			var additionalNote = {};
-			additionalNote.dateCreated = new Date().getTime();
+			additionalNote.createdBy = currentUser.username;
 			additionalNote.content = content;
-			additionalNote.createdBy = currentUser.firstName;
-			additionalNote.creatorImg = currentUser.img;
+			additionalNote.dateCreated = new Date().getTime();
 
-			//adding additional note to notes collection
-			currentNote.additionalNotes = currentNote.additionalNotes || {};
-			currentNote.additionalNotes[additionalNote.dateCreated] = additionalNote;
-
-			return currentNote;
+			//adding main note to note collection
+			if ($sessionStorage.additionalNotes[parentNoteId]) {
+				var parent  = $sessionStorage.additionalNotes[parentNoteId];
+				parent[additionalNote.dateCreated] = additionalNote;
+			}
+			else {
+				$sessionStorage.additionalNotes[parentNoteId] = {};
+				$sessionStorage.additionalNotes[parentNoteId][additionalNote.dateCreated] = additionalNote;
+				$route.reload();
+			}
+			
+			return $sessionStorage.additionalNotes;
 
 		};
 
@@ -61,5 +99,5 @@
 
 	angular
 		.module('notesApp')
-		.service('NotesService', ['$sessionStorage', NotesService]);
+		.service('NotesService', ['$sessionStorage', '$location', '$route', 'UserService', NotesService]);
 })(); 

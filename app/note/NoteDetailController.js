@@ -1,10 +1,18 @@
 (function () {
 	'use strict';
 
-	function NoteDetailController ($scope, $routeParams, NotesService) {
+	function NoteDetailController ($scope, $routeParams, $location,  UserService, NotesService) {
 		
+		//Checking to see if user is logged in, if not redirect to login
+		if (!UserService.getLoggedInUser()) {
+			$location.path('/login');
+		}
+
 		//Get current Note
 		$scope.currentNote = NotesService.getCurrentNote($routeParams.noteId); 
+
+		//Get current additionalNote
+		$scope.currentAdditionalNotes = NotesService.getCurrentAdditionalNotes($routeParams.noteId); 
 
 		//toggle view form
  		$scope.toggleViewForm = function(flag) {
@@ -27,6 +35,7 @@
 
  				//save additional note
  				NotesService.saveAdditionalNotes($routeParams.noteId, $scope.newNoteContent);
+ 				NotesService.getCurrentAdditionalNotes($routeParams.noteId); 
 
  				//hide form && empty text area
  				$scope.viewForm = false;
@@ -38,6 +47,6 @@
 
 	angular
 		.module('notesApp')
-		.controller('NoteDetailController', ['$scope', '$routeParams', 'NotesService', NoteDetailController ]);
+		.controller('NoteDetailController', ['$scope', '$routeParams', '$location', 'UserService', 'NotesService', NoteDetailController ]);
 
 })();

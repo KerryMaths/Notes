@@ -13,10 +13,10 @@
 		</thead>
 		<tbody>
 			<tr data-ng-repeat="note in notesCollection" data-ng-click="readNote()">
-				<td>{{note.ownerFirstName + " " + note.ownerLastName}}</td>
+				<td>{{note.owner.firstName + " " + note.owner.lastName}}</td>
 				<td><a data-ng-href="/#/notes/{{note.noteId}}">{{note.title}}</a></td>
 				<td>{{note.noteId | date:"MM/dd/yyyy 'at' h:mm"}}</td>
-				<td><button class="btn btn-danger" data-ng-click="deleteNote(note.noteId, note.ownerFirstName)" data-ng-show="{{ note.ownerFirstName === currentUser.firstName}}">Delete</button></td>
+				<td><button class="btn btn-danger" data-ng-click="deleteNote(note.noteId, note.ownerId)" data-ng-show="{{ note.ownerId  === currentUser.username}}">Delete</button></td>
 			</tr>
 		</tbody>
 	</table> 

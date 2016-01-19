@@ -4,7 +4,8 @@
 	function NotesController ($scope, $rootScope, $sessionStorage, $location, $routeParams, UserService, NotesService) {
 
 		//Notes collection && current user
-		$scope.notesCollection = $sessionStorage.notesCollection ;
+		$scope.notesCollection = NotesService.getAllNotes();
+
 		$scope.currentUser = $sessionStorage.currentUser;
 
 		//Checking to see if user is logged in, if not redirect to login
@@ -17,6 +18,7 @@
 			// call service function
 			if ($scope.newNote && $scope.newNote.title && $scope.newNote.content) {
 				NotesService.saveNewNote($scope.newNote, $rootScope.currentUser);
+				NotesService.getAllNotes();
 		 		$location.path('/notes');
 			}
 			
@@ -24,10 +26,9 @@
 		};
 
 		// delete note
-		$scope.deleteNote = function(noteId, owner){
+		$scope.deleteNote = function(noteId, username){
 			// call service function
-			NotesService.deleteNote(noteId, owner);
-				
+			NotesService.deleteNote(noteId, username);
 		};
 
 	}

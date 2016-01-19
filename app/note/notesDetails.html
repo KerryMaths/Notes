@@ -32,11 +32,11 @@
 
 	<table class="table">
 		<tbody>
-			<tr class="pull-left">
-				<td><img class="note-img" src="{{currentNote.ownerImg}}" alt="owner" ></td>
+			<tr class="pull-left" style="width:100%">
+				<td><img class="note-img" src="{{currentNote.owner.img}}" alt="owner" ></td>
 				<td style="width:100%">
 					<p class="note-read">
-						<span><strong>{{currentNote.ownerFirstName}}</strong></span>
+						<span><strong>{{currentNote.owner.firstName}}</strong></span>
 						<span class="pull-right">
 							<strong>{{currentNote.noteId | date:"MM/dd/yyyy 'at' h:mm"}}</strong>
 						</span><br/>
@@ -44,8 +44,8 @@
 					</p>
 				</td>
 			</tr>
-			<tr class="pull-left" data-ng-repeat="note in currentNote.additionalNotes">
-				<td><img class="note-img" ng-src="{{note.creatorImg}}" alt="owner" ></td>
+			<tr class="pull-left" data-ng-repeat="note in currentAdditionalNotes" style="width:100%">
+				<td><img class="note-img" ng-src="{{note.owner.img}}" alt="owner" ></td>
 				<td style="width:100%">
 					<p class="note-read">
 						<span><strong>{{note.createdBy}}</strong></span>

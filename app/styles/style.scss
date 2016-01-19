@@ -22,15 +22,19 @@ th {
 }
 
 .btn-primary, .btn-primary:active:focus {
-    color: #fff;
-    background-color: rgb(57, 171, 139);
-    border-color: rgb(57, 171, 139);
+  color: #fff;
+  background-color: rgb(57, 171, 139);
+  border-color: rgb(57, 171, 139);
 }
 
 .btn-primary:hover, .btn-primary:focus {
-    color: #fff;
-    background-color: rgb(29, 132, 103);
-    border-color: rgb(29, 132, 103);
+  color: #fff;
+  background-color: rgb(29, 132, 103);
+  border-color: rgb(29, 132, 103);
+}
+
+.btn-cancel.solid {
+	border-style: solid;
 }
 
 .note-read {

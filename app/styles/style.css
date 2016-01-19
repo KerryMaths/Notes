@@ -5843,6 +5843,9 @@ th {
   background-color: #1d8467;
   border-color: #1d8467; }
 
+.btn-cancel.solid {
+  border-style: solid; }
+
 .note-read {
   background-color: #f5f5f5;
   box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);

@@ -30,6 +30,30 @@
 		this.getLoggedInUser = function () {
 			return $sessionStorage.currentUser;  	
 		};
+
+
+		this.getBasicUserDetails = function (username) {
+			function onSuccess (response) {
+				var user = response.data[username];
+
+				if (user) {
+					return {
+						"firstName": user.firstName,
+						"lastName" : user.lastName,
+						"img" : user.img
+					};
+				}
+
+				return null;
+			}
+
+			function onError () {
+				return null;
+			}
+
+			return $http.get('/user/users.json')
+				.then(onSuccess, onError);
+		};
 	}
 
 	angular
